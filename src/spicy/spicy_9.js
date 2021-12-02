@@ -15,13 +15,9 @@
  *                from calling the function
  */
 export const repeat = (fn, n, ...params) => {
-    const array = new Array(n);
-    for (let i = 0; i < n; i ++) {
-        let val = fn(params[i])
-        array[i] = val;
+    for (var i = 0; i < n; i ++) {
+        fn(...params);
     }
-
-    return array;
 };
 
 
@@ -30,10 +26,10 @@ export const repeat = (fn, n, ...params) => {
  *   10 times.
  */
 export const repeatDemo = () => {
-    function example(num) {
-        return ('Hello, world!');
+    function example() {
+        console.log('Hello, world!');
     }
-    repeat(example(),10,[0,1,2,3,4,5,6,7,8,9]);
+    repeat(example,10,);
     
 };
 
@@ -229,8 +225,8 @@ export const anEvenIsOdd = (arr) => {
  */
 export const hasExactly = (arr, test, n) => {
     let obj = filter(arr,test);
-    let result_array = obj.keys(obj);
-    if (result_array.length == n) {
+    let p = obj.pass;
+    if (p.length === n) {
         return true;
     } else {
         return false;

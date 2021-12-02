@@ -6,9 +6,8 @@
  * returns: { type: 'number', value: 4 }
  */
 export function identifyVariable(variable) {
-   let array = ['undefined','object','boolean','number','string','function','symbol','bigint'];
    let obj = {
-      type: array[variable],
+      type: typeof(variable),
       value: variable};
    return obj;
 }
