@@ -169,6 +169,7 @@ export const filter = (arr, test) => {
             fail_array.push(arr[i]);
         }
     }
+    
 
     let obj = {
         pass: pass_array,
