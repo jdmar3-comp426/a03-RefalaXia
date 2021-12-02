@@ -20,7 +20,7 @@ export const repeat = (fn, n, ...params) => {
         array[i] = fn;
     }
 
-    console.log(array);
+    return array;
 };
 
 
@@ -62,7 +62,7 @@ export const multiplyBy = (num1) => {
  *   "tenTimes" that multiplies a number by 10.
  */
 export const tenTimes = (num) => {
-    multiplyBy(num)(10);
+    return multiplyBy(num)(10);
 }
 
 
@@ -169,14 +169,14 @@ export const filter = (arr, test) => {
             fail_array.push(arr[i]);
         }
     }
-    
+
 
     let obj = {
         pass: pass_array,
         fail: fail_array
     };
 
-    console.log(obj);
+    return obj;
 };
 
 
@@ -214,7 +214,7 @@ export const anEvenIsOdd = (arr) => {
         }
     }
 
-    let result = someEven(arr,test);
+    let result = someEven(arr,testOdd);
     return result;
 
 };
@@ -228,7 +228,7 @@ export const anEvenIsOdd = (arr) => {
  */
 export const hasExactly = (arr, test, n) => {
     let obj = filter(arr,test);
-    let result_array = obj.pass;
+    let result_array = obj.key(obj);
     if (result_array.length == n) {
         return true;
     } else {

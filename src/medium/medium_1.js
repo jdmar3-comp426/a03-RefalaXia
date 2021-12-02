@@ -13,7 +13,7 @@ export function getSum(array) {
         sum += array[i];
     }
 
-    console.log(sum);
+    return sum;
 }
 
 
@@ -42,7 +42,7 @@ export function getMedian(array) {
         median = array[ (n + 1) / 2];
     }
 
-    console.log(median);
+    return median;
 }
 
 /**
@@ -115,7 +115,7 @@ export function getStatistics(array) {
         variance: v,
         standard_deviation: sd};
     
-    console.log(obj);
+    return obj;
 
 }
 

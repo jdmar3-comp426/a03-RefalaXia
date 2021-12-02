@@ -8,7 +8,7 @@
 export function identifyVariable(variable) {
    let array = ['undefined','object','boolean','number','string','function','symbol','bigint'];
    let obj = {type: array[variable - 1],value: variable};
-   console.log(obj);
+   return obj;
 }
 
 
@@ -52,7 +52,7 @@ export function identifyArray(array) {
  obj now does not contain the `password` field
  */
 export function removeKey(object, key) {
-   delete object.key;
+   delete object[key];
 }
 
 /**
@@ -74,7 +74,7 @@ export function removeKey(object, key) {
 export function removeKeyNonDestructive(object, key) {
       let new_object = Object.assign({}, object);
       delete new_object[key];
-      console.log(new_object);
+      return new_object;
 }
 
 /**
@@ -105,5 +105,5 @@ export function removeKeys(object, keyList) {
       delete new_object[key];
    }
 
-   console.log(new_object);
+   return new_object;
 }
