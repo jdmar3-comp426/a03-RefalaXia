@@ -7,7 +7,9 @@
  */
 export function identifyVariable(variable) {
    let array = ['undefined','object','boolean','number','string','function','symbol','bigint'];
-   let obj = {type: array[variable - 1],value: variable};
+   let obj = {
+      type: array[variable],
+      value: variable};
    return obj;
 }
 

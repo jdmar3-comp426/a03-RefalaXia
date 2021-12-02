@@ -55,8 +55,8 @@ export function maxAndMin(numbers) {
     }
 
     let obj = {
-        min: mi,
-        max: ma
+        max: ma,
+        min: mi
     };
     return obj;
 }

@@ -17,7 +17,8 @@
 export const repeat = (fn, n, ...params) => {
     const array = new Array(n);
     for (let i = 0; i < n; i ++) {
-        array[i] = fn;
+        let val = fn(params[i])
+        array[i] = val;
     }
 
     return array;
@@ -228,7 +229,7 @@ export const anEvenIsOdd = (arr) => {
  */
 export const hasExactly = (arr, test, n) => {
     let obj = filter(arr,test);
-    let result_array = obj.key(obj);
+    let result_array = obj.keys(obj);
     if (result_array.length == n) {
         return true;
     } else {

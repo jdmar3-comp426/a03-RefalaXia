@@ -81,8 +81,15 @@ export function getStatistics(array) {
     /* median */
     let n = array.length;
     let median;
+      
+    array.sort((a, b) => {
+        if (a < b) return -1;
+        if (a > b) return 1;
+        return 0;
+    })
+
     if (n % 2 == 0) {
-        median = (array[n / 2] + array[n / 2 + 1]) / 2.0;
+        median = (array[n / 2] + array[(n / 2) - 1]) / 2.0;
     } else {
         median = array[ (n + 1) / 2];
     }
