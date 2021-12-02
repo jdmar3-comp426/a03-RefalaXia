@@ -170,7 +170,6 @@ export const filter = (arr, test) => {
         }
     }
 
-    
     let obj = {
         pass: pass_array,
         fail: fail_array
