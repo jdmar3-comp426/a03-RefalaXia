@@ -1,4 +1,4 @@
-import {variance} from "./data/stats_helpers.js";
+import {variance} from "./data/stats_helpers.js"; 
 
 /**
  * Gets the sum of an array of numbers.
@@ -8,7 +8,12 @@ import {variance} from "./data/stats_helpers.js";
  * prototype functions. Very useful
  */
 export function getSum(array) {
+    let sum = 0;
+    for (let i = 0; i < array.length; i ++) {
+        sum += array[i];
+    }
 
+    return sum;
 }
 
 
@@ -22,7 +27,22 @@ export function getSum(array) {
  * console.log(getMedian(array)); // 4.5
  */
 export function getMedian(array) {
+    let n = array.length;
+    let median;
+      
+    array.sort((a, b) => {
+        if (a < b) return -1;
+        if (a > b) return 1;
+        return 0;
+    })
 
+    if (n % 2 == 0) {
+        median = (array[n / 2] + array[(n / 2) - 1]) / 2.0;
+    } else {
+        median = array[ (n + 1) / 2];
+    }
+
+    return median;
 }
 
 /**
@@ -44,7 +64,65 @@ export function getMedian(array) {
   standard_deviation: 1.632993161855452
  }
  */
+
 export function getStatistics(array) {
+    /* length */
+    let length = array.length;
+
+    /* sum */
+    let sum = 0;
+    for (let i = 0; i < length; i ++) {
+        sum += array[i];
+    }
+
+    /* mean */
+    let mean = (sum * 1.0) / array.length;
+
+    /* median */
+    let n = array.length;
+    let median;
+      
+    array.sort((a, b) => {
+        if (a < b) return -1;
+        if (a > b) return 1;
+        return 0;
+    })
+
+    if (n % 2 == 0) {
+        median = (array[n / 2] + array[(n / 2) - 1]) / 2.0;
+    } else {
+        median = array[ (n + 1) / 2];
+    }
+
+    /* min and max */
+    let min = array[0];
+    let max = array[0];
+    for (let i = 0; i < length; i ++) {
+        if (array[i] < min) {
+            min = array[i];
+        }
+
+        if (array[i] > max) {
+            max = array[i];
+        }
+    }
+    
+    /* variance */
+    let v = variance(array, mean);
+
+    /* standard_deviation */
+    let sd = Math.sqrt(v);
+
+    let obj = {length: length,
+        sum: sum,
+        mean: mean,
+        median: median,
+        min: min,
+        max: max,
+        variance: v,
+        standard_deviation: sd};
+    
+    return obj;
 
 }
 
